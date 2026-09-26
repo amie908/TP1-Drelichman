@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"> <!--Tenemos que definir la tipografía y como vamos a hacer el banner del inicio-->
+
+    <title>segundo juego</title>
+
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Título de la página</h1> <!--nombre del juego-->
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a> 
+        <a href="primerjuego.html">primer juego</a>
+        <a href="segundojuego.html">segundo juego</a>
+        <a href="tercerjuego.html">tercer juego</a>
+    </nav>
+
+    <main class="juego-dados">
+
+        <section>
+
+            <h2> Carrera de la suerte </h2> 
+
+            <p>
+                Jugá una carrera 
+            </p>
+
+
+            <!-- Indicaciones de para el usuario --> 
+
+            <div class="instrucciones">
+                        
+                <p>
+                    ¡Tirá los dados y pone a prueba tu suerte!.
+                </p>
+            
+                <p>
+                    Tu objetivo es llegar al final de la meta antes de quedarte sin lanzamientos, pero cuidado. Hay obstáculos en tu camino...
+                </p>
+
+                <p>
+                    ¡Buen viaje y que la suerte te acomapñe!
+                </p>
+
+            </div>
+
+            <div class="puntaje">
+
+                <p>
+                    Intentos restantes: <span id="intentos">10</span>    <!--Con span seleccionamos solo el númeor asi despúes no cambiamos toda la frase-->
+                </p>
+
+                <p>
+                    Posición actual: <span id="posición">0</span>
+                </p>
+
+            </div>
+
+            <div class="azar">
+
+                <button type="button" onclick= "generarAzar()">Lanzar dados</button>
+
+                <img src= " " height="100" width="100" alt="Dado 1" id="imagen-dado1">
+
+                <img src= " " height="100" width="100" alt="Dado 2" id="imagen-dado2">
+
+                <p>
+                    ¡Presiona el botón para comenzar!
+                </p>
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <div id="tablero"></div>     <!--A crear con Java Script :)-->
+
+        </section>
+
+
+
+    </main>
+
+    <footer>
+
+        <p>
+            Trabajo Práctico N°1 - Informática General Cátedra Drelichman 
+        </p>
+
+    </footer>
+
+
+    <script src="js/juego2.js"></script>
+</body>
+
+</html>

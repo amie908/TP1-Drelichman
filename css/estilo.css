@@ -1,0 +1,26 @@
+
+
+/* ============= Juego 2 - DADOS ================ */
+
+/* contenedor del tblero */
+#tablero {
+    display: grid;
+    grid-template-columns: repeat(5, 4fr); /* armamos cinco columnas repartidas iguales */
+    gap: 1rem;    
+    margin: 2rem;
+}
+
+.casilla {
+    background-color: white;
+    border: solid black;
+    border-radius: 0.5 rem;
+    height: 11rem;
+    
+    /*centramos el contenido de la casilla*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
