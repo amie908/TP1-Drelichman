@@ -1,4 +1,300 @@
+/*================================================
+    ESTÉTICA VIDEOJUEGO RETRO / PIXEL ART
+================================================*/
 
+/*-------------------------
+    CONFIGURACIÓN GENERAL
+-------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #24133d;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/*-------------------------
+    CONTENEDOR PRINCIPAL
+-------------------------*/
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #f5b5e8;
+    border: 4px solid #3f2378;
+    box-shadow: 8px 8px 0 #24133d;
+}
+
+/*-------------------------
+    TÍTULOS
+-------------------------*/
+
+h1,
+h2,
+h3 {
+    color: #805dc5;
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        2px 2px 0 #b9ff00;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/*-------------------------
+    TEXTO
+-------------------------*/
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/*-------------------------
+    MENÚ / NAVEGACIÓN
+-------------------------*/
+
+nav {
+    background-color: #3f2378;
+    border: 4px solid #24133d;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 5px 5px 0 #24133d;
+}
+
+nav a {
+    display: block;
+    padding: 10px 18px;
+    color: #ffffff;
+    background-color: #8e55c7;
+    border: 3px solid #24133d;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.1s;
+}
+
+nav a:hover {
+    background-color: #b9ff00;
+    color: #24133d;
+    transform: translate(2px, 2px);
+}
+
+/*-------------------------
+    BOTONES
+-------------------------*/
+
+button,
+.boton {
+    padding: 10px 20px;
+    background-color: #b9ff00;
+    color: #24133d;
+    border: 3px solid #24133d;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #24133d;
+}
+
+button:hover,
+.boton:hover {
+    background-color: #fff45c;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #24133d;
+}
+
+button:active,
+.boton:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+/*-------------------------
+    CAJAS / SECCIONES
+-------------------------*/
+
+.seccion {
+    background-color: #ffffff;
+    border: 4px solid #3f2378;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 6px 6px 0 #8e55c7;
+}
+
+/*-------------------------
+    TARJETAS
+-------------------------*/
+
+.card {
+    background-color: #3f2378;
+    color: #ffffff;
+    border: 4px solid #24133d;
+    padding: 20px;
+    box-shadow: 6px 6px 0 #b9ff00;
+}
+
+.card h2,
+.card h3 {
+    color: #b9ff00;
+    text-shadow: none;
+}
+
+/*-------------------------
+    IMÁGENES
+-------------------------*/
+
+img {
+    max-width: 100%;
+    display: block;
+    border: 4px solid #24133d;
+}
+
+/*-------------------------
+    GRILLAS
+-------------------------*/
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/*-------------------------
+    FORMULARIOS
+-------------------------*/
+
+form {
+    background-color: #f5b5e8;
+    border: 4px solid #3f2378;
+    padding: 20px;
+    box-shadow: 6px 6px 0 #24133d;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border: 3px solid #3f2378;
+    color: #24133d;
+    font-family: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #b9ff00;
+    box-shadow: 4px 4px 0 #3f2378;
+}
+
+/*-------------------------
+    FOOTER
+-------------------------*/
+
+footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #3f2378;
+    color: #ffffff;
+    border: 4px solid #24133d;
+    text-align: center;
+}
+
+footer a {
+    color: #b9ff00;
+}
+
+/*-------------------------
+    ELEMENTOS DESTACADOS
+-------------------------*/
+
+.destacado {
+    background-color: #b9ff00;
+    color: #24133d;
+    border: 4px solid #24133d;
+    padding: 15px;
+    font-weight: bold;
+    box-shadow: 5px 5px 0 #8e55c7;
+}
+
+/*-------------------------
+    DECORACIÓN PIXEL
+-------------------------*/
+
+.pixel-box {
+    background-color: #000000;
+    color: #b9ff00;
+    border: 4px solid #b9ff00;
+    padding: 20px;
+    box-shadow: 6px 6px 0 #3f2378;
+}
+
+/*-------------------------
+    RESPONSIVE
+-------------------------*/
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .grid,
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+}
 
 /* ============= Juego 2 - DADOS ================ */
 
@@ -24,3 +320,43 @@
     font-weight: bold;
     font-size: 1rem;
 }
+
+/* ============= Juego 3 - MEMOTEST ================ */
+/*-------------------------
+    COLORES MEMOTEST
+-------------------------*/
+
+.carta {
+    background-color: #3f2378;
+    color: #ffffff;
+    border: 4px solid #24133d;
+    box-shadow: 6px 6px 0 #b9ff00;
+}
+
+.carta.oculta {
+    color: #b9ff00;
+}
+
+/* ============= Juego 3 - MEMOTEST ================ */
+
+#tablero:has(.carta) {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.carta {
+    background-color: #3f2378;
+    color: #ffffff;
+    border: 4px solid #24133d;
+    box-shadow: 6px 6px 0 #b9ff00;
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.carta.oculta {
+    color: #b9ff00;
+}
+

@@ -2,15 +2,15 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8"> <!--Tenemos que definir la tipografía y como vamos a hacer el banner del inicio-->
-
-    <title>segundo juego</title>
+    <meta charset="UTF8"> <!--Tenemos que definir la tipografía y como vamos a hacer el banner del inicio-->
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>tercer juego</title>
 </head>
 
 <body>
 
     <header>
-        <h1>Título de la página</h1> <!--nombre del juego-->
+        <h1>Memotest</h1> <!--nombre del juego-->
     </header>
 
     <nav>
@@ -21,12 +21,32 @@
     </nav>
 
     <main>
-        <h2>Contenido principal</h2>
-        <p>Acá va el contenido de mi página.</p> <!--Info del juego e instrucciónes-->
+
+        <br>
+        <h2>Encuentra los pares</h2>
+
+        <p>Movimientos: <span id="movimientos">0</span></p>
+
+        <div id="tablero"></div>
+
+            <button onclick="nuevoJuego()">Nuevo juego</button>
+
+            <script src="script.js"></script>
+        </div>
+
     </main>
 
+
+    <!-- JavaScript-->
+    <script src="js/juego3.js"></script>
+
+    <!--Mismo footer todas las pgs-->
     <footer>
-        <p>© 2026 </p>
+
+        <p>
+            Trabajo Práctico N°1 - Informática General Cátedra Drelichman 
+        </p>
+
     </footer>
 
 </body>
