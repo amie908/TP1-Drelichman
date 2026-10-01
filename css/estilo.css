@@ -1,5 +1,5 @@
 /*================================================
-    ESTÉTICA VIDEOJUEGO RETRO / PIXEL ART
+    ESTÉTICA RETRO / PIXEL ART
 ================================================*/
 
 /*-------------------------
@@ -322,41 +322,46 @@ footer a {
 }
 
 /* ============= Juego 3 - MEMOTEST ================ */
-/*-------------------------
-    COLORES MEMOTEST
--------------------------*/
-
-.carta {
-    background-color: #3f2378;
-    color: #ffffff;
-    border: 4px solid #24133d;
-    box-shadow: 6px 6px 0 #b9ff00;
+#tablero.memotest {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1280px;
+    width: 90%;
+    margin: 1.25rem auto;
 }
 
-.carta.oculta {
-    color: #b9ff00;
-}
-
-/* ============= Juego 3 - MEMOTEST ================ */
-
-#tablero:has(.carta) {
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.carta {
-    background-color: #3f2378;
-    color: #ffffff;
-    border: 4px solid #24133d;
-    box-shadow: 6px 6px 0 #b9ff00;
-    min-height: 120px;
+.juego-botones {
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: 3rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+.carta {
+    display: block;
+    width: 11%;
+    margin: 0.5%;
+    padding: 0;
+    border: 4px solid #24133d;
+    box-shadow: 6px 6px 0 #b9ff00;
     cursor: pointer;
 }
 
-.carta.oculta {
-    color: #b9ff00;
+.carta img {
+    width: 100%;
+    height: auto;
+    border: 0;
 }
 
+@media (max-width: 700px) {
+    #tablero.memotest {
+        width: auto;
+        margin: 1.5rem 1rem;
+    }
+
+    .carta {
+        width: 21%;
+    }
+}
