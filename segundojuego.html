@@ -62,12 +62,17 @@
                     Posición actual: <span id="posición">0</span>
                 </p>
 
+                <p>
+                    Tiempo restante: <span id="timer">120</span> segundos
+                </p>
+
             </div>
 
             <div class="azar">
 
-                <button type="button" onclick= "generarAzar()">Lanzar dados</button>
-
+                <button type="button" id="btn-lanzar" onclick= "generarAzar()">Lanzar dados</button>
+                <button type="button" onclick="reiniciarJuego()">Nuevo juego</button>
+                
                 <img src= " " height="100" width="100" alt="Dado 1" id="imagen-dado1">
 
                 <img src= " " height="100" width="100" alt="Dado 2" id="imagen-dado2">

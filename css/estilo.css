@@ -307,10 +307,11 @@ footer a {
 }
 
 .casilla {
-    background-color: white;
-    border: solid black;
-    border-radius: 0.5 rem;
-    height: 11rem;
+    background-color: #3f2378;
+    border: solid #b9ff00;
+    border-radius: 3rem;
+    height: 10rem;
+    color: #dfccfa;
     
     /*centramos el contenido de la casilla*/
 
@@ -319,6 +320,34 @@ footer a {
     align-items: center;
     font-weight: bold;
     font-size: 1rem;
+}
+
+.jugador {
+    background-color: #b9ff00;
+    color: #24133d;
+    text-shadow: #dfccfa;
+}
+
+
+
+/* Casilla con Trampa */
+.casillaBomba {
+  background-color: #ff4d4d;
+  color: white;
+  border-color: #b30000;
+}
+.casillaBomba::after {
+  content: " 💣";
+}
+
+/* Casilla con Boost */
+.casillaBoost {
+  background-color: #ffd700;
+  color: #333;
+  border-color: #b8860b;
+}
+.casillaBoost::after {
+  content: " 🚀";
 }
 
 /* ============= Juego 3 - MEMOTEST ================ */
