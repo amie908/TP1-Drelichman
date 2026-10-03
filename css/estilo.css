@@ -45,8 +45,9 @@ h3 {
 
     letter-spacing: 2px;
 
-    text-shadow:
-        2px 2px 0 #b9ff00;
+    text-shadow: 2px 2px 0 #b9ff00;
+
+    text-align: center;
 }
 
 h1 {
@@ -74,16 +75,44 @@ p {
 }
 
 /*-------------------------
+        HEADER
+-------------------------*/
+
+header {
+  background-image: url('../img/header.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  
+  height: 10rem; 
+  
+  /* alineamos el contenido*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Color del texto superpuesto */
+  text-align: center;
+}
+
+.headertitulo {
+    color:#b9ff00;
+    text-shadow: 4px 4px 0px #000, 0 0 10px #b9ff00;
+    font-style: bolder;
+    font-size: 60px;
+    font-family: 'Press Start 2P';
+}
+
+/*-------------------------
     MENÚ / NAVEGACIÓN
 -------------------------*/
 
 nav {
-    background-color: #3f2378;
-    border: 4px solid #24133d;
+    background-color: #1a0928;
+    border-radius: bo 2rem;
     padding: 10px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     box-shadow: 5px 5px 0 #24133d;
 }
 
@@ -95,8 +124,8 @@ nav a {
     border: 3px solid #24133d;
     text-decoration: none;
     text-transform: uppercase;
-    font-weight: bold;
     transition: 0.1s;
+    font-family: 'Press Start 2P';
 }
 
 nav a:hover {
@@ -116,6 +145,7 @@ button,
     color: #24133d;
     border: 3px solid #24133d;
     font-weight: bold;
+    font-family: 'Press Start 2P';  /*Agregue font al boton*/
     text-transform: uppercase;
     cursor: pointer;
     box-shadow: 4px 4px 0 #24133d;
@@ -296,9 +326,73 @@ footer a {
 
 }
 
-/* ============= Juego 2 - DADOS ================ */
+/* ================= Juego 2 - DADOS ==================== */
 
-/* contenedor del tblero */
+.juego-dados {
+    background-color:#432f695b;
+    margin: 2rem;
+    padding: 1rem;
+}
+.juego-dados p {
+    text-align: center;     
+    margin-bottom: 1.5rem;  
+    color: #b9ff00;
+}
+
+.juego-dados .instrucciones {
+    background-color: rgba(25, 10, 40, 0.9);
+    border: 2px solid #b9ff00;
+    box-shadow: 0 0 15px rgba(185, 255, 0, 0.2);
+    padding: 2rem;
+    border-radius: 12px;
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+}
+
+.juego-dados .puntaje {
+
+position: sticky;    /*ARREGLARR*/
+top: 1rem;
+max-width: fit-content;
+
+}
+
+.puntaje p {
+    background-color: #0000006f;
+    font-weight: bold;
+    font-family: 'Arial';     /*A DEFINIR LETRA*/
+    font-size: x-small;
+
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;      
+}
+
+/* DIV AZAR - IMAGENES DE LOS DADOS Y BOTONES*/
+
+.azar {
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#imagen-dado1, #imagen-dado2 {
+    margin: 0.5rem;
+}
+
+#btn-lanzar, #btn-reiniciar {
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.azar p {
+    background-color: #3f2378;
+    color: #1a0928;
+    font-weight: bolder;
+}
+
+/* Contenedor del tablero */
 #tablero {
     display: grid;
     grid-template-columns: repeat(5, 4fr); /* armamos cinco columnas repartidas iguales */
@@ -310,10 +404,11 @@ footer a {
     background-color: #3f2378;
     border: solid #b9ff00;
     border-radius: 3rem;
+    box-shadow: 0 0 10px rgba(185, 255, 0, 0.6);
     height: 10rem;
     color: #dfccfa;
     
-    /*centramos el contenido de la casilla*/
+    /* Centramos el contenido de la casilla */
 
     display: flex;
     justify-content: center;
@@ -322,15 +417,15 @@ footer a {
     font-size: 1rem;
 }
 
+ /* Estilos para la casilla sobre la que está parado el jugador*/
+
 .jugador {
     background-color: #b9ff00;
     color: #24133d;
     text-shadow: #dfccfa;
 }
 
-
-
-/* Casilla con Trampa */
+/* Casillas especiales */
 .casillaBomba {
   background-color: #ff4d4d;
   color: white;
@@ -340,7 +435,6 @@ footer a {
   content: " 💣";
 }
 
-/* Casilla con Boost */
 .casillaBoost {
   background-color: #ffd700;
   color: #333;
@@ -350,7 +444,8 @@ footer a {
   content: " 🚀";
 }
 
-/* ============= Juego 3 - MEMOTEST ================ */
+
+/* ================= Juego 3 - MEMOTEST ================== */
 #tablero.memotest {
     display: flex;
     flex-wrap: wrap;
