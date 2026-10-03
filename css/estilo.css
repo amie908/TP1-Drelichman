@@ -462,7 +462,7 @@ max-width: fit-content;
     text-shadow: #dfccfa;
 }
 
-/* Casillas especiales */
+/* Casillas especiales */     /*ESTOS NO ESTAN ANDANDO CREO*/
 .casillaBomba {
   background-color: #ff4d4d;
   color: white;
