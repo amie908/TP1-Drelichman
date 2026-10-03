@@ -7,19 +7,24 @@
     <title>Segundo juego</title>
 
     <link rel="stylesheet" href="css/estilo.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
     <header>
-        <h1>Carrera de la suerte</h1> <!--nombre del juego-->
+        <h1 class="headertitulo">Juegos</h1> <!--Nombre general del sitio-->
     </header>
 
     <nav>
         <a href="index.html">Inicio</a> 
-        <a href="primerjuego.html">primer juego</a>
-        <a href="segundojuego.html">segundo juego</a>
-        <a href="tercerjuego.html">tercer juego</a>
+        <a href="primerjuego.html">Trivia</a>
+        <a href="segundojuego.html">Carrera</a>
+        <a href="tercerjuego.html">Memotest</a>
         <a href="puntajes.html">Puntajes</a>
         <a href="proyecto.html">Proyecto</a>
     </nav>
@@ -29,11 +34,9 @@
         <section>
 
             <br>
-            <h2> ¡Prueba tu suerte! </h2> 
+            <h2> Carrera con el azar </h2> 
 
-            <p>
-                Jugá una carrera 
-            </p>
+            <h3>Probá tu suerte!</h3>
 
 
             <!-- Indicaciones de para el usuario --> 
@@ -64,15 +67,20 @@
                     Posición actual: <span id="posición">0</span>
                 </p>
 
+                <p>
+                    Tiempo restante: <span id="timer">120</span> segundos
+                </p>
+
             </div>
 
             <div class="azar">
 
-                <button type="button" onclick= "generarAzar()">Lanzar dados</button>
+                <button type="button" id="btn-lanzar" onclick= "generarAzar()">Lanzar dados</button>
+                <button type="button" id="btn-reiniciar" onclick="reiniciarJuego()">Nuevo juego</button>
+                
+                <img src= "img/1.gif" height="100" width="100" alt="Dado 1" id="imagen-dado1">
 
-                <img src= " " height="100" width="100" alt="Dado 1" id="imagen-dado1">
-
-                <img src= " " height="100" width="100" alt="Dado 2" id="imagen-dado2">
+                <img src= "img/1.gif" height="100" width="100" alt="Dado 2" id="imagen-dado2">
 
                 <p>
                     ¡Presiona el botón para comenzar!
@@ -87,8 +95,6 @@
             <div id="tablero"></div>     <!--A crear con Java Script :)-->
 
         </section>
-
-
 
     </main>
 
