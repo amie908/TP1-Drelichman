@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8"> <!--Tenemos que definir la tipografía y como vamos a hacer el banner del inicio-->
+    <meta charset="UTF-8"> 
 
     <title>Primer juego</title>
 
@@ -12,23 +12,42 @@
 <body>
 
     <header>
-        <h1>Sitio de juegos</h1> <!--Nombre general del sitio-->
+        <h1>Sitio de juegos</h1> 
     </header>
 
     <nav>
         <a href="index.html">Inicio</a> 
         <a href="primerjuego.html">Trivia</a>
-        <a href="segundojuego.html">Carrera/a>
+        <a href="segundojuego.html">Carrera>
         <a href="tercerjuego.html">Memotest</a>
         <a href="puntajes.html">Puntajes</a>
         <a href="proyecto.html">Proyecto</a>
     </nav>
 
 
-    <main>
-        <h2>Contenido principal</h2>
-        <p>Acá va el contenido de mi página.</p> <!--Info del juego e instrucciónes-->
-    </main>
+    <main class="trivia">
+        
+		<section>
+		
+			<h2>Juego de trivia</h2>
+		
+			<h3>¡Demostrá cuanto sabés!</h3>
+		    
+			<p>Acá va el contenido de mi página.</p>
+			
+			<p id="estado" class="gris">Cargando pregunta...</p>
+  			<p id="pregunta"></p> <!-- contenido html vacio porque va a cambiar constantemente en js -->
+  			<div id="opciones"></div>
+  			<p id="resultado" class="resultado"></p>
+  			<button id="nueva" type="button" hidden>Nueva pregunta</button>
+				
+        </section>
+		
+		
+		<p><a href="index.html" class="volver">» volver a index «</a></p>
+		    
+	
+	</main>
 
    <footer>
 
@@ -37,6 +56,9 @@
         </p>
 
     </footer>
+	
+	<script src="js/juego1.js"></script>
+	
 </body>
 
 </html>
