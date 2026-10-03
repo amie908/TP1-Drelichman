@@ -9,7 +9,7 @@
 
 <body>
     <header>
-        <h1>Puntajes</h1> 
+        <h1>Puntajes</h1>
     </header>
 
     <nav>
@@ -22,13 +22,99 @@
     </nav>
 
     <main>
-        <h2>Tabla de puntajes</h2> <!-- No se si dejar esto como un h2 o poner más texto, si lo dejamos hay que armar otro título igual que diga record-->
-        <section></section>
+        <h2>Historial y mejores récords</h2>
+        <p class="puntajes-intro">Los resultados del Memotest se guardan en este navegador.</p>
+
+        <section class="seccion puntajes-juego">
+            <h3>Memotest de cartas españolas</h3>
+
+            <div class="record-juego">
+                <h4>Mejor récord</h4>
+                <p id="record-memotest">Todavía no hay partidas ganadas.</p>
+                <p class="detalle-record">Se prioriza la menor cantidad de movimientos; en caso de empate, el mayor tiempo restante.</p>
+            </div>
+
+            <div class="tabla-puntajes">
+                <h4>Historial de partidas</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Resultado</th>
+                            <th>Movimientos</th>
+                            <th>Parejas</th>
+                            <th>Tiempo restante</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historial-memotest">
+                        <tr>
+                            <td colspan="5">Todavía no hay partidas registradas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion puntajes-juego">
+            <h3>Primer juego (nombre pendiente)</h3>
+
+            <div class="record-juego pendiente">
+                <h4>Mejor récord</h4>
+                <p>Se completará cuando esté terminado el juego.</p>
+            </div>
+
+            <div class="tabla-puntajes">
+                <h4>Historial de partidas</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Resultado</th>
+                            <th>Puntaje o detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">El historial se completará cuando esté terminado el juego.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion puntajes-juego">
+            <h3>Carrera de la suerte</h3>
+
+            <div class="record-juego pendiente">
+                <h4>Mejor récord</h4>
+                <p>Se completará cuando estén definidas e implementadas las reglas finales.</p>
+            </div>
+
+            <div class="tabla-puntajes">
+                <h4>Historial de partidas</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Resultado</th>
+                            <th>Puntaje o detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">El historial se completará cuando esté terminado el juego.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
-<!--Agregar contenido. Armar 1 tabla con todos los resultados y un apartado con el recor máximo-->
+
     <footer>
         <p>Trabajo Práctico N°1 - Informática General Cátedra Drelichman</p>
     </footer>
+
+    <script src="js/puntajes.js"></script>
 </body>
 
 </html>

@@ -24,6 +24,27 @@ let temporizador = null;
 let juegoTerminado = false;
 let juegoIniciado = false;
 
+function guardarPartidaMemotest(ganada) {
+    let historialGuardado = localStorage.getItem("historialMemotest");
+    let historial = [];
+
+    if (historialGuardado !== null) {
+        historial = JSON.parse(historialGuardado);
+    }
+
+    let partida = {
+        fecha: new Date().toLocaleString("es-AR"),
+        resultado: ganada ? "Victoria" : "Tiempo agotado",
+        movimientos: movimientos,
+        parejas: parejas,
+        tiempoRestante: tiempoRestante,
+        ganada: ganada
+    };
+
+    historial.unshift(partida);
+    localStorage.setItem("historialMemotest", JSON.stringify(historial));
+}
+
 // Agregar dos copias de cada frente al mazo
 function armarMazo() {
     cartas = [];
@@ -111,6 +132,7 @@ function iniciarTemporizador() {
             clearInterval(temporizador);
             temporizador = null;
             juegoTerminado = true;
+            guardarPartidaMemotest(false);
             bloqueo = true;
             alert("¡se acabó el tiempo! intentalo otra vez");
         }
@@ -156,6 +178,7 @@ function comprobarPareja() {
 
         if (parejas === cartas.length / 2) {
             juegoTerminado = true;
+            guardarPartidaMemotest(true);
             clearInterval(temporizador);
             temporizador = null;
             setTimeout(function () {
