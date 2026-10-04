@@ -141,6 +141,7 @@ function generarAzar() {
       }
 
       verificarCasillaEspecial();  // Chequeamos si cayó en una casilla buena o mala.
+      verificarFinJuego();
     }
 
   }, 500); // 500 milisegundos por paso
@@ -223,7 +224,7 @@ function verificarFinJuego() {
 
 // ================= FUNCIÓN PARA GUARDAR EN EL LOCAL STORAGE ================ //
 
-  function guardarPartidaCarrera(ganada) {
+function guardarPartidaCarrera(ganada) {
     let historialGuardado = localStorage.getItem("historialCarrera");
     let historial = [];
 
@@ -231,13 +232,20 @@ function verificarFinJuego() {
         historial = JSON.parse(historialGuardado);
     }
 
+    let intentosUsados = 5 - intentosRestantes;
+
     let partida = {
         fecha: new Date().toLocaleString("es-AR"),
         resultado: ganada ? "Victoria" : "Derrota",
-        detalle: ganada ? "Sobraron " + tiempoRestante + "s" : "Sin intentos / Tiempo",
+        detalle: ganada 
+            ? intentosUsados + " intentos | Sobraron " + tiempoRestante + "s"
+            : "Llegó al casillero " + posicionActual,
+        ganada: ganada, 
+        tiempoRestante: tiempoRestante, 
+        intentosUsados: intentosUsados
     };
 
-    historial.unshift(partida); // Agrega la partida nueva al principio de la lista
+    historial.unshift(partida);
     localStorage.setItem("historialCarrera", JSON.stringify(historial));
 }
 

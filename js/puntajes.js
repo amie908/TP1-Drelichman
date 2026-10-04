@@ -135,7 +135,7 @@ function mostrarMejorRecordCarrera(historial) {
         }
     }
 
-    let textoRecord = document.querySelector("record-carrera");
+    let textoRecord = document.getElementById("record-carrera");
 
     if (textoRecord) {
         if (mejorPartida === null) {
