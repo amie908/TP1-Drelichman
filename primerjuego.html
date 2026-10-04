@@ -12,10 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -35,27 +31,38 @@
 
 
     <main class="trivia">
-        <section class="trivia-panel">
-            <div class="trivia-presentacion">
-                <p class="trivia-etiqueta">Desafío de verdadero o falso</p>
-                <h2>Juego de trivia</h2>
-                <h3>¡Demostrá cuánto sabés!</h3>
-                <p>Leé la afirmación y elegí tu respuesta.</p>
-            </div>
+        
+		<h2>Juego de trivia</h2>
+		<h3>¡Demostrá cuanto sabés!</h3>
+		
+	<div class="juego">
+    <!-- Seccion para capturar nombre del jugador -->
+    <div id="pantalla-registro">
+        <p>Ingresá tu nombre para comenzar:</p> 
+        <input type="text" id="input-nombre" placeholder="Tu nombre" />
+        <button id="btn-comenzar" type="button">Comenzar Trivia</button>
+    </div>
 
-            <div class="trivia-pregunta-recuadro">
-                <p class="trivia-titulo-pregunta">Pregunta</p>
-                <p id="estado" class="gris">Cargando pregunta...</p>
-                <p id="pregunta" class="trivia-texto-pregunta"></p>
-            </div>
 
-            <div id="opciones" class="trivia-opciones"></div>
-            <p id="resultado" class="resultado trivia-resultado"></p>
-            <button id="nueva" class="trivia-nueva" type="button" hidden>Nueva pregunta</button>
-        </section>
 
-        <p class="trivia-volver"><a href="index.html" class="volver">» volver al inicio «</a></p>
-    </main>
+
+    <!-- Al infresar el nombre comienza el juego -->
+    <div id="pantalla-juego" style="display: none;">
+        <p>Jugador: <strong id="mostrar-nombre"></strong> | Puntaje: <strong id="mostrar-puntaje">0</strong></p>
+        <p id="estado" class="gris">Cargando pregunta...</p> <!-- para el estado de la conexion con la api -->
+        <p id="pregunta"></p> <!--  -->
+        <div id="opciones"></div>
+        <p id="resultado" class="resultado"></p>
+        <button id="nueva" type="button" hidden>Siguiente Pregunta</button>
+        <button id="btn-finalizar" type="button" hidden>Guardar y Ver Puntajes</button>
+    </div>
+</div>
+		
+		
+		<p><a href="index.html" class="volver">» volver a index «</a></p>
+		    
+	
+	</main>
 
    <footer>
 
