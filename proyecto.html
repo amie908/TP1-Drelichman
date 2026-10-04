@@ -33,37 +33,92 @@
         <a href="proyecto.html">Proyecto</a>
     </nav>
 
-    <main>
-        <section class="seccion">
+    <main class="main-proyecto">
+        <section class="seccion-proyecto">     
             <h2>Integrantes</h2>
-            <p>Lilén Buckley</p>
-            <p>Victoria González</p>
+
+                <div id="integrantes">
+
+                    <p class="integrante-tarjeta">
+                        Lilén Buckley
+                        <img src="img/integrante2.jpg" alt="Personaje pixel art">
+                    </p>
+
+                    <p class="integrante-tarjeta">
+                        Victoria González
+                        <img src="img/integrante1.jpg" alt="Personaje pixel art">
+                    </p>
+
+                    <p class="integrante-tarjeta">
+                        Alejandro Iribarren
+                        <img src="img/integrante3.jpg" alt="Personaje pixel art"">
+                    </p>
+
+                </div>
         </section>
 
-        <section class="seccion">
+        <section class="seccion-proyecto">
             <h2>El proyecto</h2>
-            <p>Este sitio reúne tres juegos interactivos desarrollados para el Trabajo Práctico 1: Trivia, Carrera de dados y Memotest de cartas españolas.</p>
-            <p>La idea del Memotest nació del recuerdo de jugar con dos mazos de cartas españolas para encontrar pares.</p>
+
+            <p>
+                Este sitio reúne tres juegos interactivos: Trivia, Carrera con dados y Memotest con cartas españolas. Todos desarrollados para el Trabajo Práctico N°1 de la materia Informática General (Cátedra Drelichman) dentro del marco de la
+                carrera de Artes Multimediales de la Universidad Nacional de las Artes. 
+            </p>
+        <br>
+            <p>
+                Utilizamos HTML para organizar el contenido, CSS para aplicar estilos y JavaScript para las reglas y acciones e interactividad de los juegos. Los puntajes se almacenan localmente en el navegador web del usuario, es decir que la información se guarda sin tiempo de expiración.
+            </p>
+        <br>
+            <p>
+                Para una mejor interactividad en el sitio mantuvimos la misma estética retro en todas las páginas, incluyendo botones, formato y organización. Dividimos el trabajo en un juego para cada integrante, siempre
+                manteniendo una misma línea y respetando los commits de cada uno. El objetivo grupal era lograr un sitio coherente y fácil de navegar.
+            </p>
+        <br>
+            <p>
+                En el menú de navegación encontrarás el acceso a las seis páginas del sitio. En la ventana de incio podrás acceder con un click a los tres juegos, que los encontrarás también con
+                sus respectivos nombres en el menú. Asimismo podrás ingresar a la ventana de puntajes que guarda un registro de tus partidas, donde podrás ver las fechas en las que jugaste, tu mejor récord, tus victorias, aciertos y derrotas, y tus intentos y el
+                tiempo que te llevó completar los juegos cada día. 
+            
+            </p>    
         </section>
 
-        <section class="seccion">
+        <section class="seccion-proyecto">
             <h2>Los juegos y su desarrollo</h2>
-            <ul>
-                <li><strong>Trivia:</strong> preguntas de verdadero o falso obtenidas de <a href="https://opentdb.com/">Open Trivia DB</a>.</li>
-                <li><strong>Carrera de dados:</strong> un recorrido con casillas especiales, intentos limitados y tiempo.</li>
-                <li><strong>Memotest:</strong> un juego de memoria para encontrar las parejas de cartas.</li>
+
+            <ul class="proyecto-lista">
+                <li><strong>Trivia:</strong> Preguntas de verdadero o falso obtenidas de <a href="https://opentdb.com/">Open Trivia DB</a>.</li>
+                <li><strong>Carrera de dados:</strong> Un recorrido con casillas especiales, intentos limitados y tiempo.</li>
+                <li><strong>Memotest:</strong> Un juego de memoria para encontrar las parejas de cartas.</li>
             </ul>
-            <p>Usamos HTML para organizar el contenido, CSS para darle estilo y JavaScript para las reglas y acciones de los juegos. Los puntajes se guardan en el navegador.</p>
+
+            <p>
+                La idea del Memotest nació del recuerdo de jugar con dos mazos de cartas españolas para encontrar pares.
+            </p>
+        <br>
+            <p> 
+                El juego <strong>"Carrera de Dados"</strong> busca generar una expectativa en el usuario y dejar su triunfo al azar. Desde JavaScript se crea el tablero, se mueve la ficha y se evalúa la posición de ésta.
+                Contiene casillas especiales Bomba y Boost (destacadas desde el css), las cuales te hacen avanzar o retroceder casilleros. El juego se gana cuando llegás a la casilla número 20 antes de que se acabe el minuto o te quedes sin intentos. Observamos
+                capacidad de mejora en las casillas especiales, las cuales podrían tener 
+            </p>
+
         </section>
 
-        <section class="seccion">
-            <h2>Uso de inteligencia artificial</h2>
-            <p>Se utilizó ChatGPT para proponer ideas, pedir correcciones de código y recibir sugerencias para organizar el CSS, las cajas y los márgenes. El equipo evaluó las propuestas e incorporó las que se ajustaban a los contenidos vistos en clase y ayudaban a mantener el código claro. Se descartaron las que agregaban estructuras todavía no vistas o lo volvían más engorroso.</p>
+        <section class="seccion-proyecto">
+            <h2>
+                Uso de inteligencia artificial
+            </h2>
+
+            <p>
+                Se utilizó ChatGPT y Gemini para proponer ideas, pedir correcciones de código y recibir sugerencias para organizar el CSS, las cajas y los márgenes. El equipo evaluó las propuestas e incorporó las que se ajustaban a los contenidos vistos en clase y ayudaban a mantener el código claro. Se descartaron las que agregaban estructuras todavía no vistas o lo volvían más engorroso. También fue utilizada para 
+                lograr bloques de código más concretos y directos en JavaScript, sobre todo en la página de puntajes que involucraba los tres juegos. 
+            </p>
         </section>
     </main>
 
     <footer>
-        <p>Trabajo Práctico N°1 - Informática General Cátedra Drelichman</p>
+        <p>
+            Trabajo Práctico N°1 - Informática General Cátedra Drelichman
+        </p>
     </footer>
 </body>
 
