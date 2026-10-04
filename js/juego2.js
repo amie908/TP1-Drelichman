@@ -2,13 +2,14 @@
 // ===================== VARIABLES GENERALES ============================ //
 
 let posicionActual = 0;
-let intentosRestantes = 10;
-let tiempoRestante = 120; // 2 minutos expresados en segundos
+let intentosRestantes = 5;
+let tiempoRestante = 60; // 1 minuto en segundos.
 let reloj = null;
+let intervaloPasos = null;
 
 // ==================== CASILLAS ESPECIALES ============================= //
 
-const casillasMalas = [5, 12, 17];  // Si caen acá retroceden 3 casilleros
+const casillasMalas = [5, 6, 13, 19];  // Si caen acá retroceden 3 casilleros
 const casillasBuenas = [3, 9, 15];  // Si caen acá avanzan dos casilleros
 
 
@@ -22,9 +23,9 @@ function iniciarReloj() {
     
 
     // === Mostramos los segundos en pantalla === //
-    const elemTimer = document.getElementById("timer");
-    if (elemTimer) {
-      elemTimer.textContent = tiempoRestante;
+    const contador = document.getElementById("timer");
+    if (contador) {
+      contador.textContent = tiempoRestante;
     }
 
 
@@ -52,11 +53,11 @@ for (let i = 1; i <= 20; i++) {
 
   // === Agregamos íconos para identificar casillas bomba y casillas propulsoras === //
   if (casillasMalas.includes(i)) {
-    casilla.classList.add('trampa');
-    casilla.textContent = i + " 💣";
+    casilla.classList.add('casillaBomba');
+    casilla.textContent = i;
   } else if (casillasBuenas.includes(i)) {
-    casilla.classList.add('boost');
-    casilla.textContent = i + " 🚀";
+    casilla.classList.add('casillaBoost');
+    casilla.textContent = i;
   } else {
     casilla.textContent = i;
   }
@@ -113,7 +114,7 @@ function generarAzar() {
 
   // ================== MOVIMIENTO DE FICHA ======================== //
 
-  let pasoAMp = setInterval(function() {
+  intervaloPasos = setInterval(function() {
     
     if (posicionActual > 0) {
       let casillaAnterior = document.getElementById("casilla-" + posicionActual);
@@ -128,11 +129,11 @@ function generarAzar() {
     if (casillaNueva) casillaNueva.classList.add("jugador");     // Destacamos la nueva casilla
 
 
-    document.getElementById("posición").textContent = posicionActual;  // Actualizamos el número que se muestra en la pantalla.
+    document.getElementById("posicion").textContent = posicionActual;  // Actualizamos el número que se muestra en la pantalla.
 
 
     if (posicionActual === posicionDestino) {
-      clearInterval(pasoAMp); // Verificamos si llegó a destino y, si llegó, la frenamos.
+      clearInterval(intervaloPasos); // Verificamos si llegó a destino y, si llegó, la frenamos.
 
 
       if (intentosRestantes > 0 && posicionActual < 20 && tiempoRestante > 0) {
@@ -149,27 +150,27 @@ function generarAzar() {
 // ============ VERIFICAMOS CASILLAS ================ //
 
 function verificarCasillaEspecial() {
-  let casillaActualElem = document.getElementById("casilla-" + posicionActual);
+  let casillaActual = document.getElementById("casilla-" + posicionActual);
 
 
   // === SI CAYÓ EN UNA CASILLA MALA === //
 
   if (casillasMalas.includes(posicionActual)) {
-    casillaActualElem.classList.add("explosion"); // le agregamos una clase con estilo de bomba pum
+    casillaActual.classList.add("explosion"); // le agregamos una clase con estilo de bomba pum
     
     setTimeout(function() {
       alert("💣 ¡Caíste en una casilla bomba! Retrocedés 3 casilleros.");
       
       // Le quitamos la ficha y la clase de explosión
-      casillaActualElem.classList.remove("jugador", "explosion");
+      casillaActual.classList.remove("jugador", "explosion");
       
       // Retrocede 3 casilleros
       posicionActual -= 3;
       if (posicionActual < 1) posicionActual = 1;
       
-      // Ubicamos la ficha en la nueva posición de castigo
+      // Ubicamos la ficha en la nueva posición 
       document.getElementById("casilla-" + posicionActual).classList.add("jugador");
-      document.getElementById("posición").textContent = posicionActual;
+      document.getElementById("posicion").textContent = posicionActual;
     }, 300);
   } 
   
@@ -178,19 +179,19 @@ function verificarCasillaEspecial() {
   // === SI CAYÓ EN UNA CASILLA BUENA === //
 
   else if (casillasBuenas.includes(posicionActual)) {
-    casillaActualElem.classList.add("super-boost"); // Clase CSS para efecto visual
+    casillaActual.classList.add("super-boost"); // Clase CSS para efecto visual
     
     setTimeout(function() {
       alert("🚀 ¡Obtuviste un BOOST! Avanzas dos casilleros.");
       
-      casillaActualElem.classList.remove("jugador", "super-boost");
+      casillaActual.classList.remove("jugador", "super-boost");
       
       // Avanza 2 casilleros
       posicionActual += 2;
       if (posicionActual > 20) posicionActual = 20;
       
       document.getElementById("casilla-" + posicionActual).classList.add("jugador");
-      document.getElementById("posición").textContent = posicionActual;
+      document.getElementById("posicion").textContent = posicionActual;
     }, 300);
   }
 
@@ -198,14 +199,86 @@ function verificarCasillaEspecial() {
   verificarFinJuego();
 }
 
+
+ // ============= VERIFICAMOS SI LA PARTIDA TERMINÓ, SI GANÓ O PERDIÓ POR INTENTOS ================== //
+
 function verificarFinJuego() {
   if (posicionActual >= 20) {
     clearInterval(reloj); // Frenamos el timer
-    alert("🎉 ¡Llegaste a la meta y ganaste la carrera!");
-    document.getElementById("btn-lanzar").disabled = true;
+
+    guardarPartidaCarrera(true); // Guardamos la partida ganada
+
+  alert("🎉 ¡Estas con suerte! ¡Ganaste!");
+  document.getElementById("btn-lanzar").disabled = true;
+
   } else if (intentosRestantes <= 0) {
     clearInterval(reloj);
+
+        guardarPartidaCarrera(false); // Guardamos la partida perdida
+
     alert("Te quedaste sin intentos. ¡Intenta de nuevo!");
     document.getElementById("btn-lanzar").disabled = true;
   }
+  }
+
+// ================= FUNCIÓN PARA GUARDAR EN EL LOCAL STORAGE ================ //
+
+  function guardarPartidaCarrera(ganada) {
+    let historialGuardado = localStorage.getItem("historialCarrera");
+    let historial = [];
+
+    if (historialGuardado !== null) {
+        historial = JSON.parse(historialGuardado);
+    }
+
+    let partida = {
+        fecha: new Date().toLocaleString("es-AR"),
+        resultado: ganada ? "Victoria" : "Derrota",
+        detalle: ganada ? "Sobraron " + tiempoRestante + "s" : "Sin intentos / Tiempo",
+    };
+
+    historial.unshift(partida); // Agrega la partida nueva al principio de la lista
+    localStorage.setItem("historialCarrera", JSON.stringify(historial));
+}
+
+
+// ================= FUNCIÓN DEL BOTÓN PARA INICIAR UN NUEVO JUEGO ================ //
+
+function reiniciarJuego() {
+  
+  if (intervaloPasos) {
+    clearInterval(intervaloPasos);
+    intervaloPasos = null;
+  }
+
+  const btnLanzar = document.getElementById("btn-lanzar");
+  if (btnLanzar) btnLanzar.disabled = false;
+
+  clearInterval(reloj);   //limpiamos el reloj
+
+
+  //removemos las clases
+  if (posicionActual > 0) {
+    let casillaAnterior = document.getElementById("casilla-" + posicionActual);
+    if (casillaAnterior) {
+      casillaAnterior.classList.remove("jugador", "explosion", "super-boost");
+    }
+  }
+
+  posicionActual = 0;
+  intentosRestantes = 5;
+  tiempoRestante = 60; // 1 minuto en segundos.
+  reloj = null;
+
+  document.getElementById("posicion").textContent = posicionActual;
+  document.getElementById("intentos").textContent = intentosRestantes;
+  document.getElementById("timer").textContent = tiempoRestante;
+
+
+  const dado1 = document.getElementById('imagen-dado1');
+  const dado2 = document.getElementById('imagen-dado2');
+  if (dado1) dado1.src = "img/1.gif"; 
+  if (dado2) dado2.src = "img/1.gif";
+
+
 }

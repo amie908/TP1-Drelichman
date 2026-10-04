@@ -19,6 +19,10 @@ body {
     min-height: 100vh;
 }
 
+p {
+    font-family: 'Geist Pixel';
+}
+
 /*-------------------------
     CONTENEDOR PRINCIPAL
 -------------------------*/
@@ -374,17 +378,28 @@ footer a {
     text-align: center;     
     margin-bottom: 1.5rem;  
     color: #b9ff00;
+    font-size: 18px;
 }
 
 .juego-dados .instrucciones {
     background-color: rgba(25, 10, 40, 0.9);
     border: 2px solid #b9ff00;
     box-shadow: 0 0 15px rgba(185, 255, 0, 0.2);
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 12px;
     width: fit-content;
     display: block;
-    margin: 0 auto;
+    margin: 2rem auto;
+}
+
+#recuadro {
+    background-color: #8e55c7;
+}
+
+#recuadro p {
+    padding: 1rem;
+    color:rgba(25, 10, 40, 0.9);
+    font-weight: bold;
 }
 
 .juego-dados .puntaje {
@@ -398,7 +413,6 @@ max-width: fit-content;
 .puntaje p {
     background-color: #0000006f;
     font-weight: bold;
-    font-family: 'Arial';     /*A DEFINIR LETRA*/
     font-size: x-small;
 
     padding: 0.5rem;
@@ -462,7 +476,7 @@ max-width: fit-content;
     text-shadow: #dfccfa;
 }
 
-/* Casillas especiales */     /*ESTOS NO ESTAN ANDANDO CREO*/
+/* Casillas especiales */     
 .casillaBomba {
   background-color: #ff4d4d;
   color: white;

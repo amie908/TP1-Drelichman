@@ -12,6 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -36,39 +40,41 @@
             <br>
             <h2> Carrera con el azar </h2> 
 
-            <h3>Probá tu suerte!</h3>
-
-
             <!-- Indicaciones de para el usuario --> 
 
             <div class="instrucciones seccion">
+
+                <div id="recuadro">
                         
+                 <p>
+                    ¡Tirá los dados y pone a prueba tu suerte!
+                 </p>
+
+                </div>
+
                 <p>
-                    ¡Tirá los dados y pone a prueba tu suerte!.
-                </p>
-            
-                <p>
-                    Tu objetivo es llegar al final de la meta antes de quedarte sin lanzamientos, pero cuidado. Hay obstáculos en tu camino...
+                    Tu objetivo es llegar al final de la meta antes de quedarte sin lanzamientos <br>
+                    ¡Pero cuidado! Hay obstáculos en tu camino.
                 </p>
 
                 <p>
-                    ¡Buen viaje y que la suerte te acomapñe!
+                    ¡Buen viaje y que la suerte te acompañe!
                 </p>
 
             </div>
 
-            <div class="puntaje">
+            <div class="estado-juego">
 
                 <p>
-                    Intentos restantes: <span id="intentos">10</span>    <!--Con span seleccionamos solo el númeor asi despúes no cambiamos toda la frase-->
+                    Intentos restantes: <span id="intentos">5</span>    <!--Con span seleccionamos solo el númeor asi despúes no cambiamos toda la frase-->
                 </p>
 
                 <p>
-                    Posición actual: <span id="posición">0</span>
+                    Posición actual: <span id="posicion">0</span>
                 </p>
 
                 <p>
-                    Tiempo restante: <span id="timer">120</span> segundos
+                    Tiempo restante: <span id="timer">60</span> segundos.
                 </p>
 
             </div>
@@ -76,15 +82,12 @@
             <div class="azar">
 
                 <button type="button" id="btn-lanzar" onclick= "generarAzar()">Lanzar dados</button>
-                <button type="button" id="btn-reiniciar" onclick="reiniciarJuego()">Nuevo juego</button>
                 
                 <img src= "img/1.gif" height="100" width="100" alt="Dado 1" id="imagen-dado1">
 
                 <img src= "img/1.gif" height="100" width="100" alt="Dado 2" id="imagen-dado2">
 
-                <p>
-                    ¡Presiona el botón para comenzar!
-                </p>
+                <button type="button" id="btn-reiniciar" onclick="reiniciarJuego()">Nuevo juego</button>
 
             </div>
 
