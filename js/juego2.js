@@ -12,6 +12,15 @@ let intervaloPasos = null;
 const casillasMalas = [5, 6, 13, 19];  // Si caen acá retroceden 3 casilleros
 const casillasBuenas = [3, 9, 15];  // Si caen acá avanzan dos casilleros
 
+function contieneElemento(array, valor) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === valor) {
+      return true;
+    }
+  }
+  return false;
+}
+
 
 // ==================== fUNCIÓN RELOJ ============================= //
 
@@ -52,10 +61,10 @@ for (let i = 1; i <= 20; i++) {
 
 
   // === Agregamos íconos para identificar casillas bomba y casillas propulsoras === //
-  if (casillasMalas.includes(i)) {
+  if (contieneElemento(casillasMalas, i)) {
     casilla.classList.add('casillaBomba');
     casilla.textContent = i;
-  } else if (casillasBuenas.includes(i)) {
+  } else if (contieneElemento(casillasBuenas, i)) {
     casilla.classList.add('casillaBoost');
     casilla.textContent = i;
   } else {
@@ -156,7 +165,7 @@ function verificarCasillaEspecial() {
 
   // === SI CAYÓ EN UNA CASILLA MALA === //
 
-  if (casillasMalas.includes(posicionActual)) {
+  if (contieneElemento(casillasMalas, posicionActual)) {
     casillaActual.classList.add("explosion"); // le agregamos una clase con estilo de bomba pum
     
     setTimeout(function() {
@@ -179,7 +188,7 @@ function verificarCasillaEspecial() {
 
   // === SI CAYÓ EN UNA CASILLA BUENA === //
 
-  else if (casillasBuenas.includes(posicionActual)) {
+  else if (contieneElemento(casillasBuenas, posicionActual)) {
     casillaActual.classList.add("super-boost"); // Clase CSS para efecto visual
     
     setTimeout(function() {
@@ -232,7 +241,6 @@ function guardarPartidaCarrera(ganada) {
     let intentosUsados = 5 - intentosRestantes;
 
     let partida = {
-        fecha: new Date().toLocaleString("es-AR"),
         resultado: ganada ? "Victoria" : "Derrota",
         detalle: ganada 
             ? intentosUsados + " intentos | Sobraron " + tiempoRestante + "s"
@@ -242,7 +250,11 @@ function guardarPartidaCarrera(ganada) {
         intentosUsados: intentosUsados
     };
 
-    historial.unshift(partida);
+    let historialNuevo = [partida];
+    for (let i = 0; i < historial.length; i++) {
+        historialNuevo[i + 1] = historial[i];
+    }
+    historial = historialNuevo;
     localStorage.setItem("historialCarrera", JSON.stringify(historial));
 }
 

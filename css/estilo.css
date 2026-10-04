@@ -262,18 +262,6 @@ img {
     GRILLAS
 -------------------------*/
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
 /*-------------------------
     FORMULARIOS
 -------------------------*/
@@ -376,13 +364,12 @@ footer a {
         flex-direction: column;
     }
 
-    .grid,
-    .grid-3 {
-        grid-template-columns: 1fr;
-    }
-
     h1 {
         font-size: 30px;
+    }
+
+    .casilla {
+        width: 48%;
     }
 
 }
@@ -463,9 +450,10 @@ max-width: fit-content;
 
 /* Contenedor del tablero */
 #tablero {
-    display: grid;
-    grid-template-columns: repeat(5, 4fr); /* armamos cinco columnas repartidas iguales */
-    gap: 1rem;    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1%;
     margin: 2rem;
 }
 
@@ -475,6 +463,7 @@ max-width: fit-content;
     border-radius: 3rem;
     box-shadow: 0 0 10px rgba(185, 255, 0, 0.6);
     height: 10rem;
+    width: 18%;
     color: #dfccfa;
     
     /* Centramos el contenido de la casilla */
@@ -761,5 +750,82 @@ max-width: fit-content;
 
     .trivia-opciones button {
         width: 100%;
+    }
+}
+
+/* ================= INICIO ==================== */
+.inicio {
+    margin: 2rem auto;
+    max-width: 1200px;
+    width: 90%;
+}
+
+.inicio-bienvenida {
+    text-align: center;
+}
+
+.inicio-bienvenida p {
+    color: #ffffff;
+}
+
+.inicio-juegos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.inicio-tarjeta {
+    flex: 1 1 260px;
+    max-width: 380px;
+    text-align: center;
+}
+
+.inicio-tarjeta img,
+.inicio-icono {
+    background-color: #1a0928;
+    border: 2px solid #b9ff00;
+    border-radius: 8px;
+    height: 180px;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.inicio-tarjeta img {
+    object-fit: contain;
+}
+
+.inicio-icono {
+    align-items: center;
+    color: #e94bd1;
+    display: flex;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 80px;
+    justify-content: center;
+    text-shadow: 3px 3px 0 #805dc5;
+}
+
+.inicio-tarjeta h3 {
+    color: #b9ff00;
+    text-shadow: none;
+}
+
+.inicio-tarjeta p {
+    margin: 12px 0 18px;
+    min-height: 52px;
+}
+
+.inicio-tarjeta .boton {
+    display: inline-block;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .inicio {
+        width: 95%;
+    }
+
+    .inicio-tarjeta p {
+        min-height: 0;
     }
 }

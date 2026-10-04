@@ -33,9 +33,34 @@
         <a href="proyecto.html">Proyecto</a>
     </nav>
 
-    <main>
-        <h2>Contenido principal</h2>
-        <p>En esta página podras encontrar 3 juegos hechos en java script.</p> <!--Info de la pagina en general-->
+    <main class="inicio">
+        <section class="seccion inicio-bienvenida">
+            <h2>¡Bienvenidos a nuestro espacio de juegos!</h2>
+            <p>Elegí una propuesta, jugá y descubrí cuál es tu favorita.</p>
+        </section>
+
+        <section class="inicio-juegos" id="juegos">
+            <article class="card inicio-tarjeta">
+                <div class="inicio-icono" aria-hidden="true">?</div>
+                <h3>Trivia</h3>
+                <p>Respondé verdadero o falso y poné a prueba tus conocimientos.</p>
+                <a href="primerjuego.html" class="boton">Jugar Trivia</a>
+            </article>
+
+            <article class="card inicio-tarjeta">
+                <img src="img/1.gif" alt="Dado del juego Carrera">
+                <h3>Carrera de dados</h3>
+                <p>Tirá los dados, esquivá obstáculos y tratá de llegar a la meta.</p>
+                <a href="segundojuego.html" class="boton">Jugar Carrera</a>
+            </article>
+
+            <article class="card inicio-tarjeta">
+                <img src="img/oro1.png" alt="Carta española del juego Memotest">
+                <h3>Memotest</h3>
+                <p>Encontrá las parejas de cartas usando la memoria.</p>
+                <a href="tercerjuego.html" class="boton">Jugar Memotest</a>
+            </article>
+        </section>
     </main>
 
     <footer>

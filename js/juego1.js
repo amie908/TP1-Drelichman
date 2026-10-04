@@ -13,11 +13,11 @@ const endpoint = "https://opentdb.com/api.php?amount=10&category=9&difficulty=me
 /* Variables de captura.
 Primero creamos las variables utiles según el juego. CONST para que no puedan ser modificadas. Sirven para capturar elementos del DOM con document.querySelector con el id asignado (el texto de carga/error, el texto de la pregunta, los botones de opción, el mensaje final y el botón para cargar otra pregunta). 
 */
-const espera = document.querySelector("#espera"); /* texto de carga/error */
 const elementoPregunta = document.querySelector("#pregunta"); /* el texto de la pregunta */
 const opciones = document.querySelector("#opciones"); /* los botones de opción */
 const resultado = document.querySelector("#resultado"); /* el mensaje final */
-const reintentar = document.querySelector("#reintentar"); /* botón para cargar otra pregunta */
+const estado = document.querySelector("#estado"); /* mensaje de carga o estado */
+const nueva = document.querySelector("#nueva"); /* botón para cargar otra pregunta */
 let respuestaCorrecta = ""; /* Se reserva temporalmente para la solución booleana devuelta por la api*/
 
 

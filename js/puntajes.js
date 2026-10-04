@@ -55,7 +55,7 @@ function mostrarHistorialMemotest(historial) {
         let partida = historial[i];
         let fila = document.createElement("tr");
 
-        crearCelda(fila, partida.fecha);
+        crearCelda(fila, "Partida " + (historial.length - i));
         crearCelda(fila, partida.resultado);
         crearCelda(fila, partida.movimientos);
         crearCelda(fila, partida.parejas + " de 8");
@@ -127,7 +127,7 @@ function mostrarHistorialCarrera(historial) {
         let fila = document.createElement("tr");
 
         // uso la funcion crearCelda que creó Lili
-        crearCelda(fila, partida.fecha);
+        crearCelda(fila, "Partida " + (historial.length - i));
         crearCelda(fila, partida.resultado);
         crearCelda(fila, partida.detalle);
 

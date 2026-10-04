@@ -16,6 +16,8 @@ let cartas = [];
 // Variables del juego
 let primeraCarta = null;
 let segundaCarta = null;
+let valorPrimeraCarta = "";
+let valorSegundaCarta = "";
 let bloqueo = false;
 let movimientos = 0;
 let parejas = 0;
@@ -33,7 +35,6 @@ function guardarPartidaMemotest(ganada) {
     }
 
     let partida = {
-        fecha: new Date().toLocaleString("es-AR"),
         resultado: ganada ? "Victoria" : "Tiempo agotado",
         movimientos: movimientos,
         parejas: parejas,
@@ -41,7 +42,11 @@ function guardarPartidaMemotest(ganada) {
         ganada: ganada
     };
 
-    historial.unshift(partida);
+    let historialNuevo = [partida];
+    for (let i = 0; i < historial.length; i++) {
+        historialNuevo[i + 1] = historial[i];
+    }
+    historial = historialNuevo;
     localStorage.setItem("historialMemotest", JSON.stringify(historial));
 }
 
@@ -74,9 +79,6 @@ function crearTablero() {
         let carta = document.createElement("div");
         carta.classList.add("carta");
         carta.classList.add("oculta");
-        carta.dataset.valor = datosCarta.valor;
-        carta.dataset.imagen = datosCarta.imagen;
-
         let imagen = document.createElement("img");
         imagen.src = dorso;
         imagen.alt = "Dorso de la carta";
@@ -84,7 +86,7 @@ function crearTablero() {
         carta.appendChild(imagen);
 
         carta.addEventListener("click", function () {
-            descubrirCarta(carta);
+            descubrirCarta(carta, datosCarta);
         });
 
         tablero.appendChild(carta);
@@ -92,10 +94,10 @@ function crearTablero() {
 }
 
 // Mostrar u ocultar el frente de una carta
-function mostrarFrente(carta) {
+function mostrarFrente(carta, datosCarta) {
     let imagen = carta.querySelector("img");
-    imagen.src = carta.dataset.imagen;
-    imagen.alt = carta.dataset.valor;
+    imagen.src = datosCarta.imagen;
+    imagen.alt = datosCarta.valor;
     carta.classList.remove("oculta");
 }
 
@@ -151,19 +153,21 @@ function iniciarJuego() {
 }
 
 // Descubrir una carta
-function descubrirCarta(carta) {
+function descubrirCarta(carta, datosCarta) {
     if (!juegoIniciado || juegoTerminado || bloqueo || carta === primeraCarta || !carta.classList.contains("oculta")) {
         return;
     }
 
-    mostrarFrente(carta);
+    mostrarFrente(carta, datosCarta);
 
     if (primeraCarta === null) {
         primeraCarta = carta;
+        valorPrimeraCarta = datosCarta.valor;
         return;
     }
 
     segundaCarta = carta;
+    valorSegundaCarta = datosCarta.valor;
     movimientos++;
     document.getElementById("movimientos").textContent = movimientos;
     comprobarPareja();
@@ -171,10 +175,12 @@ function descubrirCarta(carta) {
 
 // Comprobar si las cartas son iguales
 function comprobarPareja() {
-    if (primeraCarta.dataset.valor === segundaCarta.dataset.valor) {
+    if (valorPrimeraCarta === valorSegundaCarta) {
         parejas++;
         primeraCarta = null;
         segundaCarta = null;
+        valorPrimeraCarta = "";
+        valorSegundaCarta = "";
 
         if (parejas === cartas.length / 2) {
             juegoTerminado = true;
@@ -194,6 +200,8 @@ function comprobarPareja() {
         mostrarDorso(segundaCarta);
         primeraCarta = null;
         segundaCarta = null;
+        valorPrimeraCarta = "";
+        valorSegundaCarta = "";
         bloqueo = juegoTerminado;
     }, 1000);
 }
@@ -204,6 +212,8 @@ function nuevoJuego() {
     temporizador = null;
     primeraCarta = null;
     segundaCarta = null;
+    valorPrimeraCarta = "";
+    valorSegundaCarta = "";
     bloqueo = false;
     movimientos = 0;
     parejas = 0;
