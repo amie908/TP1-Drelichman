@@ -35,28 +35,27 @@
 
 
     <main class="trivia">
-        
-		<section>
-		
-			<h2>Juego de trivia</h2>
-		
-			<h3>¡Demostrá cuanto sabés!</h3>
-		    
-			<p>Acá va el contenido de mi página.</p>
-			
-			<p id="estado" class="gris">Cargando pregunta...</p>
-  			<p id="pregunta"></p> <!-- contenido html vacio porque va a cambiar constantemente en js -->
-  			<div id="opciones"></div>
-  			<p id="resultado" class="resultado"></p>
-  			<button id="nueva" type="button" hidden>Nueva pregunta</button>
-				
+        <section class="trivia-panel">
+            <div class="trivia-presentacion">
+                <p class="trivia-etiqueta">Desafío de verdadero o falso</p>
+                <h2>Juego de trivia</h2>
+                <h3>¡Demostrá cuánto sabés!</h3>
+                <p>Leé la afirmación y elegí tu respuesta.</p>
+            </div>
+
+            <div class="trivia-pregunta-recuadro">
+                <p class="trivia-titulo-pregunta">Pregunta</p>
+                <p id="estado" class="gris">Cargando pregunta...</p>
+                <p id="pregunta" class="trivia-texto-pregunta"></p>
+            </div>
+
+            <div id="opciones" class="trivia-opciones"></div>
+            <p id="resultado" class="resultado trivia-resultado"></p>
+            <button id="nueva" class="trivia-nueva" type="button" hidden>Nueva pregunta</button>
         </section>
-		
-		
-		<p><a href="index.html" class="volver">» volver a index «</a></p>
-		    
-	
-	</main>
+
+        <p class="trivia-volver"><a href="index.html" class="volver">» volver al inicio «</a></p>
+    </main>
 
    <footer>
 

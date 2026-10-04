@@ -195,9 +195,6 @@ function verificarCasillaEspecial() {
       document.getElementById("posicion").textContent = posicionActual;
     }, 300);
   }
-
-  // Verificamos si ganó o perdió la partida
-  verificarFinJuego();
 }
 
 

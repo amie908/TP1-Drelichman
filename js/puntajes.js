@@ -19,6 +19,22 @@ function crearCelda(fila, texto) {
     fila.appendChild(celda);
 }
 
+// ============================ PUNTAJE TRIVIA ================================ //
+
+function cargarPuntajesTrivia() {
+    let respuestasGuardadas = localStorage.getItem("respuestasTrivia");
+    let respuestas = { verdaderas: 0, falsas: 0 };
+
+    if (respuestasGuardadas !== null) {
+        respuestas = JSON.parse(respuestasGuardadas);
+    }
+
+    document.getElementById("contador-verdaderas").textContent = respuestas.verdaderas;
+    document.getElementById("contador-falsas").textContent = respuestas.falsas;
+}
+
+cargarPuntajesTrivia();
+
 // ============================ PUNTAJE MEMOTEST ================================ //
 
 function mostrarHistorialMemotest(historial) {

@@ -111,6 +111,21 @@ function responder(eleccion, botonElegido) { /* funcion "pregunta" recibe "elecc
     boton.disabled = true; /* desactiva boton */
   });
 
+  let respuestasTrivia = { verdaderas: 0, falsas: 0 };
+  let respuestasGuardadas = localStorage.getItem("respuestasTrivia");
+
+  if (respuestasGuardadas !== null) {
+    respuestasTrivia = JSON.parse(respuestasGuardadas);
+  }
+
+  if (eleccion === "True") {
+    respuestasTrivia.verdaderas++;
+  } else {
+    respuestasTrivia.falsas++;
+  }
+
+  localStorage.setItem("respuestasTrivia", JSON.stringify(respuestasTrivia));
+
   if (eleccion === respuestaCorrecta) { /* compara eleccion con respuesta correcta... */
     resultado.textContent = "Correcto"; /* ...si son iguales muestra correcto... */
   } else { /* ...sino... */

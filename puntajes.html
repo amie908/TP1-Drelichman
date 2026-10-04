@@ -33,26 +33,58 @@
         <a href="proyecto.html">Proyecto</a>
     </nav>
 
+    <br>
+
     <main>
 
         <h2>Historial y mejores récords</h2>
 
-        <p class="puntajes-intro">
-            Los resultados del Memotest se guardan en este navegador.
-        </p>
+        <!-- JUEGO 1 -->
+        <section class="seccion puntajes-juego">
+            <h3>Trivia</h3>
+            <div class="estado-juego">
+                <p>Verdaderas: <span id="contador-verdaderas">0</span></p>
+                <p>Falsas: <span id="contador-falsas">0</span></p>
+            </div>
+        </section>
 
+        <!-- JUEGO 2 -->
+        <section class="seccion puntajes-juego">
+            <h3>Carrera de la suerte</h3>
+            <div class="record-juego">
+                <h4>Mejor récord</h4>
+                <p id="record-carrera">
+                    Todavía no hay partidas registradas.
+                </p>
+            </div>
+            <div class="tabla-puntajes">
+                <h4>Historial de partidas</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Resultado</th>
+                            <th>Puntaje o detalle</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="historial-carrera">
+                        <tr>
+                            <td colspan="3">Todavía no hay partidas registradas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
         <!-- JUEGO 3 -->
         <section class="seccion puntajes-juego">
-
             <h3>Memotest de cartas españolas</h3>
-
             <div class="record-juego">
                 <h4>Mejor récord</h4>
                 <p id="record-memotest">Todavía no hay partidas ganadas.</p>
                 <p class="detalle-record">Se prioriza la menor cantidad de movimientos; en caso de empate, el mayor tiempo restante.</p>
             </div>
-
             <div class="tabla-puntajes">
                 <h4>Historial de partidas</h4>
                 <table>
@@ -71,78 +103,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </section>
-
-
-        <!-- JUEGO 1 -->
-
-        <section class="seccion puntajes-juego">
-
-            <h3>Primer juego (nombre pendiente)</h3>
-
-            <div class="record-juego pendiente">
-                <h4>Mejor récord</h4>
-                <p>Se completará cuando esté terminado el juego.</p>
-            </div>
-
-            <div class="tabla-puntajes">
-                <h4>Historial de partidas</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Resultado</th>
-                            <th>Puntaje o detalle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="3">El historial se completará cuando esté terminado el juego.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-
-        <!--JUEGO 2-->
-        <section class="seccion puntajes-juego">
-
-            <h3>Carrera de la suerte</h3>
-
-            <div class="record-juego">
-
-                <h4>Mejor récord</h4>
-
-                <p id="record-carrera">
-                    Todavía no hay partidas registradas.
-                </p>
-
-            </div>
-
-            <div class="tabla-puntajes">
-
-                <h4>Historial de partidas</h4>
-
-                <table>
-
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>                           
-                            <th>Resultado</th>
-                            <th>Puntaje o detalle</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="historial-carrera">
-                        <tr>
-                            <td colspan="3">Todavía no hay partidas registradas.</td>
-                        </tr>
-                    </tbody>        
-
-                </table>
-
             </div>
         </section>
     </main>
