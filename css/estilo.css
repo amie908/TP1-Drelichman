@@ -111,7 +111,7 @@ header h1,
     color: #b9ff00;
     text-shadow: 4px 4px 0 #000000, 0 0 10px #b9ff00;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 55px;
     font-family: 'Press Start 2P', monospace;
     margin-bottom: 0;
 }
@@ -189,7 +189,7 @@ button:active,
     CAJAS / SECCIONES
 -------------------------*/
 
-.seccion {
+.seccion, .seccion-proyecto {
     background-color: rgba(63, 35, 120, 0.58);
     color: #ffffff;
     border: 2px solid #a76bd0;
@@ -403,7 +403,6 @@ footer a {
 
 .juego-dados .puntaje {
 
-position: sticky;    /*ARREGLARR*/
 top: 1rem;
 max-width: fit-content;
 
@@ -412,7 +411,7 @@ max-width: fit-content;
 .puntaje p {
     background-color: #0000006f;
     font-weight: bold;
-    font-family: 'Arial';     /*A DEFINIR LETRA*/
+    font-family: 'Arial';   
     font-size: x-small;
 
     padding: 0.5rem;
@@ -828,4 +827,56 @@ max-width: fit-content;
     .inicio-tarjeta p {
         min-height: 0;
     }
+}
+
+
+/* ============================ PROYECTO ========================== */
+
+.main-proyecto {
+    font-family: 'Geist Pixel';
+}
+#integrantes {
+    display: flex;
+    gap: 20px;
+    font-family: 'Geist Pixel';
+    font-weight: bolder;
+}
+
+.integrante-tarjeta {
+    flex: 1;
+    background-color:#1a0928;
+    border-radius: 1rem;
+    padding: 2rem;
+    justify-content: center;
+
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.integrante-tarjeta img {
+    height: 6rem;
+    width: 6rem;
+    display: inline-block;
+    margin-left: auto;
+}
+
+.proyecto-lista {
+    padding: 1rem;
+}
+
+.proyecto-lista li {
+    margin-bottom: 0.5rem;
+}
+
+.seccion-proyecto {
+    margin: 2rem;
+}
+
+.seccion-proyecto h2 {
+    color: #bbff00d5;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 0 #24133d;
+    text-align: center;
 }
