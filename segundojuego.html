@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Segundo juego</title>
 
@@ -12,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
 
 </head>
 
@@ -78,13 +81,13 @@
 
             <div class="azar">
 
-                <button type="button" id="btn-lanzar">Lanzar dados</button>
+                <button type="button" id="btn-lanzar" onclick= "generarAzar()">Lanzar dados</button>
                 
                 <img src= "img/1.gif" height="100" width="100" alt="Dado 1" id="imagen-dado1">
 
                 <img src= "img/1.gif" height="100" width="100" alt="Dado 2" id="imagen-dado2">
 
-                <button type="button" id="btn-reiniciar">Nuevo juego</button>
+                <button type="button" id="btn-reiniciar" onclick="reiniciarJuego()">Nuevo juego</button>
 
             </div>
 

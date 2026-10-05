@@ -6,8 +6,6 @@ let intentosRestantes = 5;
 let tiempoRestante = 60; // 1 minuto en segundos.
 let reloj = null;
 let intervaloPasos = null;
-let esperaCasillaEspecial = null;
-let juegoTerminado = false;
 
 // ==================== CASILLAS ESPECIALES ============================= //
 
@@ -43,7 +41,10 @@ function iniciarReloj() {
 
     // === Si llega a 0, se termina el juego === //
     if (tiempoRestante <= 0) {
-      terminarJuegoCarrera(false, "⏰ Te quedaste sin tiempo. Juego terminado.");
+      clearInterval(reloj);
+      const btnLanzar = document.getElementById("btn-lanzar");
+      if (btnLanzar) btnLanzar.disabled = true;
+      alert("⏰ Te quedaste sin tiempo. Juego terminado.");
     }
   }, 1000);
 }
@@ -79,7 +80,6 @@ for (let i = 1; i <= 20; i++) {
 // ==================== FUNCIÓN PARA LOS DADOS (AZAR) ============================= //
 
 function generarAzar() {
-  if (juegoTerminado) return;
 
   // === Arrancamos el reloj === //
   iniciarReloj();
@@ -93,6 +93,10 @@ function generarAzar() {
   document.getElementById('imagen-dado2').src = "img/" + azar2 + ".gif";
 
   let avance = azar1 + azar2;
+  console.log("Avanza:", avance, "casilleros");
+
+
+
   // === Calculamos posición final === //
 
   let posicionDestino = posicionActual + avance;
@@ -139,10 +143,14 @@ function generarAzar() {
 
     if (posicionActual === posicionDestino) {
       clearInterval(intervaloPasos); // Verificamos si llegó a destino y, si llegó, la frenamos.
-      intervaloPasos = null;
 
+
+      if (intentosRestantes > 0 && posicionActual < 20 && tiempoRestante > 0) {
+        if (btnLanzar) btnLanzar.disabled = false;   // Habilitamos el botón si quedan intentos
+      }
 
       verificarCasillaEspecial();  // Chequeamos si cayó en una casilla buena o mala.
+      verificarFinJuego();
     }
 
   }, 500); // 500 milisegundos por paso
@@ -160,9 +168,7 @@ function verificarCasillaEspecial() {
   if (contieneElemento(casillasMalas, posicionActual)) {
     casillaActual.classList.add("explosion"); // le agregamos una clase con estilo de bomba pum
     
-    esperaCasillaEspecial = setTimeout(function() {
-      esperaCasillaEspecial = null;
-      if (juegoTerminado) return;
+    setTimeout(function() {
       alert("💣 ¡Caíste en una casilla bomba! Retrocedés 3 casilleros.");
       
       // Le quitamos la ficha y la clase de explosión
@@ -175,7 +181,6 @@ function verificarCasillaEspecial() {
       // Ubicamos la ficha en la nueva posición 
       document.getElementById("casilla-" + posicionActual).classList.add("jugador");
       document.getElementById("posicion").textContent = posicionActual;
-      verificarFinJuego();
     }, 300);
   } 
   
@@ -186,9 +191,7 @@ function verificarCasillaEspecial() {
   else if (contieneElemento(casillasBuenas, posicionActual)) {
     casillaActual.classList.add("super-boost"); // Clase CSS para efecto visual
     
-    esperaCasillaEspecial = setTimeout(function() {
-      esperaCasillaEspecial = null;
-      if (juegoTerminado) return;
+    setTimeout(function() {
       alert("🚀 ¡Obtuviste un BOOST! Avanzas dos casilleros.");
       
       casillaActual.classList.remove("jugador", "super-boost");
@@ -199,10 +202,7 @@ function verificarCasillaEspecial() {
       
       document.getElementById("casilla-" + posicionActual).classList.add("jugador");
       document.getElementById("posicion").textContent = posicionActual;
-      verificarFinJuego();
     }, 300);
-  } else {
-    verificarFinJuego();
   }
 }
 
@@ -210,34 +210,23 @@ function verificarCasillaEspecial() {
  // ============= VERIFICAMOS SI LA PARTIDA TERMINÓ, SI GANÓ O PERDIÓ POR INTENTOS ================== //
 
 function verificarFinJuego() {
-  if (juegoTerminado) return;
-
   if (posicionActual >= 20) {
-    terminarJuegoCarrera(true, "🎉 ¡Estas con suerte! ¡Ganaste!");
+    clearInterval(reloj); // Frenamos el timer
+
+    guardarPartidaCarrera(true); // Guardamos la partida ganada
+
+  alert("🎉 ¡Estas con suerte! ¡Ganaste!");
+  document.getElementById("btn-lanzar").disabled = true;
 
   } else if (intentosRestantes <= 0) {
-    terminarJuegoCarrera(false, "Te quedaste sin intentos. ¡Intenta de nuevo!");
-  } else {
-    document.getElementById("btn-lanzar").disabled = false;
+    clearInterval(reloj);
+
+        guardarPartidaCarrera(false); // Guardamos la partida perdida
+
+    alert("Te quedaste sin intentos. ¡Intenta de nuevo!");
+    document.getElementById("btn-lanzar").disabled = true;
   }
-}
-
-function terminarJuegoCarrera(ganada, mensaje) {
-  if (juegoTerminado) return;
-
-  juegoTerminado = true;
-  clearInterval(reloj);
-  reloj = null;
-
-  if (intervaloPasos !== null) {
-    clearInterval(intervaloPasos);
-    intervaloPasos = null;
   }
-
-  document.getElementById("btn-lanzar").disabled = true;
-  guardarPartidaCarrera(ganada);
-  alert(mensaje);
-}
 
 // ================= FUNCIÓN PARA GUARDAR EN EL LOCAL STORAGE ================ //
 
@@ -279,11 +268,6 @@ function reiniciarJuego() {
     intervaloPasos = null;
   }
 
-  if (esperaCasillaEspecial !== null) {
-    clearTimeout(esperaCasillaEspecial);
-    esperaCasillaEspecial = null;
-  }
-
   const btnLanzar = document.getElementById("btn-lanzar");
   if (btnLanzar) btnLanzar.disabled = false;
 
@@ -302,8 +286,6 @@ function reiniciarJuego() {
   intentosRestantes = 5;
   tiempoRestante = 60; // 1 minuto en segundos.
   reloj = null;
-  intervaloPasos = null;
-  juegoTerminado = false;
 
   document.getElementById("posicion").textContent = posicionActual;
   document.getElementById("intentos").textContent = intentosRestantes;
@@ -317,6 +299,3 @@ function reiniciarJuego() {
 
 
 }
-
-document.getElementById("btn-lanzar").addEventListener("click", generarAzar);
-document.getElementById("btn-reiniciar").addEventListener("click", reiniciarJuego);
