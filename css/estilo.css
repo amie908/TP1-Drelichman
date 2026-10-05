@@ -2,8 +2,6 @@
     ESTÉTICA RETRO / PIXEL ART
 ================================================*/
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 /*-------------------------
     CONFIGURACIÓN GENERAL
 -------------------------*/
@@ -19,21 +17,6 @@ body {
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
-}
-
-/*-------------------------
-    CONTENEDOR PRINCIPAL
--------------------------*/
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 25px;
-    background-color: rgba(25, 10, 40, 0.9);
-    border: 2px solid #a76bd0;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(233, 75, 209, 0.22);
 }
 
 /*-------------------------
@@ -258,33 +241,7 @@ img {
     border-radius: 8px;
 }
 
-/*-------------------------
-    GRILLAS
--------------------------*/
-
-/*-------------------------
-    FORMULARIOS
--------------------------*/
-
-form {
-    background-color: rgba(63, 35, 120, 0.45);
-    color: #ffffff;
-    border: 2px solid #c887e8;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(233, 75, 209, 0.18);
-}
-
-label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-input,
-textarea,
-select {
+input {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -295,9 +252,7 @@ select {
     font-family: inherit;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+input:focus {
     outline: none;
     border-color: #b9ff00;
     box-shadow: 0 0 10px rgba(185, 255, 0, 0.6);
@@ -323,42 +278,10 @@ footer a {
 }
 
 /*-------------------------
-    ELEMENTOS DESTACADOS
--------------------------*/
-
-.destacado {
-    background-color: rgba(0, 0, 0, 0.4);
-    color: #b9ff00;
-    border: 2px solid #b9ff00;
-    border-radius: 10px;
-    padding: 15px;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(185, 255, 0, 0.2);
-}
-
-/*-------------------------
-    DECORACIÓN PIXEL
--------------------------*/
-
-.pixel-box {
-    background-color: rgba(25, 10, 40, 0.9);
-    color: #b9ff00;
-    border: 2px solid #b9ff00;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(185, 255, 0, 0.2);
-}
-
-/*-------------------------
     RESPONSIVE
 -------------------------*/
 
 @media (max-width: 700px) {
-
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
 
     nav {
         flex-direction: column;
@@ -399,25 +322,6 @@ footer a {
     width: fit-content;
     display: block;
     margin: 0 auto;
-}
-
-.juego-dados .puntaje {
-
-top: 1rem;
-max-width: fit-content;
-
-}
-
-.puntaje p {
-    background-color: #0000006f;
-    font-weight: bold;
-    font-family: 'Arial';   
-    font-size: x-small;
-
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;      
-    border: 1px solid #b9ff00;
-    border-radius: 8px;
 }
 
 /* DIV AZAR - IMAGENES DE LOS DADOS Y BOTONES*/
@@ -582,10 +486,6 @@ max-width: fit-content;
     font-size: 14px;
 }
 
-.pendiente p {
-    color: #f5b5e8;
-}
-
 .tabla-puntajes {
     margin-top: 20px;
     overflow-x: auto;
@@ -629,6 +529,10 @@ max-width: fit-content;
     padding: 2rem;
 }
 
+.pantalla-juego {
+    display: none;
+}
+
 .trivia-presentacion {
     margin-bottom: 2rem;
     text-align: center;
@@ -656,10 +560,6 @@ max-width: fit-content;
     margin-bottom: 0.5rem;
 }
 
-.trivia-presentacion > p:last-child {
-    color: #ffffff;
-}
-
 .trivia-pregunta-recuadro {
     background-color: rgba(25, 10, 40, 0.9);
     border: 2px solid #b9ff00;
@@ -669,15 +569,6 @@ max-width: fit-content;
     max-width: 800px;
     min-height: 190px;
     padding: 1.5rem 2rem;
-}
-
-.trivia-titulo-pregunta {
-    color: #e94bd1;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-align: center;
-    text-transform: uppercase;
 }
 
 .trivia-pregunta-recuadro #estado {
@@ -833,12 +724,11 @@ max-width: fit-content;
 /* ============================ PROYECTO ========================== */
 
 .main-proyecto {
-    font-family: 'Geist Pixel';
+    font-family: 'Geist Pixel', Arial, sans-serif;
 }
 #integrantes {
     display: flex;
     gap: 20px;
-    font-family: 'Geist Pixel';
     font-weight: bolder;
 }
 
