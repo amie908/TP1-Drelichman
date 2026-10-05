@@ -20,67 +20,20 @@ function crearCelda(fila, texto) {
 }
 
 // ============================ PUNTAJE TRIVIA ================================ //
-// Se ejecuta automáticamente cuando todo el HTML de la página termina de cargarse
-document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. Capturamos los elementos donde mostraremos los datos de la Trivia
-    const cuerpoTabla = document.querySelector("#historial-trivia");
-    const contenedorRecord = document.querySelector("#record-trivia");
 
-    // 2. Leemos la clave "historialTrivia" almacenada en el sessionStorage
-    const datosGuardados = sessionStorage.getItem("historialTrivia");
+function cargarPuntajesTrivia() {
+    let datosGuardados = localStorage.getItem("respuestasTrivia");
+    let respuestas = { verdaderas: 0, falsas: 0 };
 
-    // 3. Verificamos si existen datos guardados en la sesión
-    if (datosGuardados) {
-        // Convertimos la cadena de texto JSON de vuelta a un arreglo de objetos JavaScript
-        const listaPartidas = JSON.parse(datosGuardados);
-
-        // Limpiamos el texto por defecto de la tabla
-        cuerpoTabla.innerHTML = "";
-
-        // Variable para rastrear el puntaje más alto
-        let mejorPuntaje = 0;
-        let mejorJugador = "";
-
-        // 4. Recorremos cada partida registrada en la lista
-        listaPartidas.forEach((partida) => {
-            // Evaluamos si esta partida supera el récord actual
-            if (partida.puntos > mejorPuntaje) {
-                mejorPuntaje = partida.puntos;
-                mejorJugador = partida.jugador;
-            }
-
-            // Creamos una nueva fila (tr) para la tabla
-            const fila = document.createElement("tr");
-
-            // Rellenamos el contenido HTML de la fila con las celdas (td)
-            fila.innerHTML = `
-                <td>${partida.fecha}</td>
-                <td>${partida.jugador}</td>
-                <td>${partida.puntos} pts</td>
-            `;
-
-            // Insertamos la fila dentro del tbody
-            cuerpoTabla.appendChild(fila);
-        });
-
-        // 5. Mostramos el mejor récord encontrado
-        if (mejorJugador !== "") {
-            contenedorRecord.textContent = `🏆 ${mejorJugador} con ${mejorPuntaje} puntos.`;
-        } else {
-            contenedorRecord.textContent = `Aún no hay récords registrados.`;
-        }
-
-    } else {
-        // Si no se encuentra nada guardado en sessionStorage
-        cuerpoTabla.innerHTML = `
-            <tr>
-                <td colspan="3">Aún no hay partidas de Trivia registradas en esta sesión.</td>
-            </tr>
-        `;
-        contenedorRecord.textContent = "Todavía no hay partidas registradas.";
+    if (datosGuardados !== null) {
+        respuestas = JSON.parse(datosGuardados);
     }
-});
+
+    document.getElementById("contador-verdaderas").textContent = respuestas.verdaderas;
+    document.getElementById("contador-falsas").textContent = respuestas.falsas;
+}
+
+cargarPuntajesTrivia();
 
 // ============================ PUNTAJE MEMOTEST ================================ //
 
